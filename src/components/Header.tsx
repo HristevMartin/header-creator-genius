@@ -25,13 +25,13 @@ const Header = () => {
   return (
     <header className={cn(
       "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 bg-white",
-      scrolled ? "shadow-sm" : "border-b border-gray-200"
+      scrolled ? "shadow-sm" : "border-b border-gray-100"
     )}>
       {/* Top bar with logo and icons */}
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
         {/* Left side - Tagline */}
         <div className="hidden md:block">
-          <p className="text-sm font-serif text-gray-800">The travel club for hotel lovers</p>
+          <p className="text-sm font-serif text-gray-700 italic">The travel club for hotel lovers</p>
         </div>
 
         {/* Mobile menu icon - visible on small screens */}
@@ -59,16 +59,16 @@ const Header = () => {
         {/* Right side - Icons */}
         <div className="flex items-center space-x-4 md:space-x-6">
           <button className="text-gray-800 hover:text-gray-600 transition-colors">
-            <Phone size={20} />
+            <Phone size={18} />
           </button>
           <button className="text-gray-800 hover:text-gray-600 transition-colors">
-            <Heart size={20} />
+            <Heart size={18} />
           </button>
           <button className="text-gray-800 hover:text-gray-600 transition-colors">
-            <ShoppingBag size={20} />
+            <ShoppingBag size={18} />
           </button>
-          <div className="h-8 w-8 rounded-full bg-gray-800 flex items-center justify-center text-white">
-            <User size={18} />
+          <div className="h-7 w-7 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 transition-colors">
+            <User size={16} />
           </div>
         </div>
       </div>

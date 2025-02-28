@@ -21,19 +21,19 @@ const Navigation = () => {
   return (
     <nav className="bg-white border-t border-gray-200">
       <div className="container mx-auto px-4 md:px-6">
-        <ul className="flex justify-center space-x-2 md:space-x-4 lg:space-x-8 overflow-x-auto no-scrollbar">
+        <ul className="flex justify-center space-x-5 md:space-x-6 lg:space-x-8 overflow-x-auto no-scrollbar py-1">
           {menuItems.map((item) => (
-            <li key={item.label} className="relative py-4">
+            <li key={item.label} className="relative py-3">
               <Link
                 to={item.path}
-                className="text-gray-800 hover:text-black whitespace-nowrap text-sm md:text-base font-medium px-1"
+                className="text-gray-700 hover:text-black whitespace-nowrap text-sm font-light tracking-wide uppercase px-1 transition-colors duration-300"
                 onMouseEnter={() => setHoveredItem(item.label)}
                 onMouseLeave={() => setHoveredItem(null)}
               >
                 {item.label}
                 {hoveredItem === item.label && (
                   <motion.div
-                    className="absolute bottom-2 left-0 right-0 h-0.5 bg-black"
+                    className="absolute bottom-0 left-0 right-0 h-[1px] bg-black"
                     layoutId="underline"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
