@@ -1,8 +1,13 @@
 
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ArrowRight, Calendar, MapPin, Users } from "lucide-react";
 import Header from "@/components/Header";
+import { useState } from "react";
 
 const Index = () => {
+  const [destination, setDestination] = useState("");
+  const [guests, setGuests] = useState("2 adults, 0 children");
+  const [dateRange, setDateRange] = useState("Check in → Check out");
+
   return (
     <div className="bg-white min-h-screen">
       <Header />
@@ -16,6 +21,67 @@ const Index = () => {
             <p className="text-lg md:text-xl text-white max-w-2xl text-center mb-10 font-light px-4">
               Handpicked luxury and boutique hotels for the discerning traveler
             </p>
+            
+            {/* Search Form */}
+            <div className="w-full max-w-5xl mx-auto px-4 mb-8">
+              <div className="bg-white p-1 rounded-none flex flex-col md:flex-row">
+                {/* Destination */}
+                <div className="flex-1 border-b md:border-b-0 md:border-r border-gray-200 p-4">
+                  <div className="text-xs uppercase tracking-wider text-gray-500 mb-1 font-light">DESTINATION</div>
+                  <div className="flex items-center">
+                    <MapPin size={16} className="text-gray-400 mr-2" />
+                    <input 
+                      type="text" 
+                      placeholder="Where would you like to go?" 
+                      className="w-full outline-none text-sm"
+                      value={destination}
+                      onChange={(e) => setDestination(e.target.value)}
+                    />
+                  </div>
+                </div>
+                
+                {/* Dates */}
+                <div className="flex-1 border-b md:border-b-0 md:border-r border-gray-200 p-4">
+                  <div className="text-xs uppercase tracking-wider text-gray-500 mb-1 font-light">DATES</div>
+                  <div className="flex items-center">
+                    <Calendar size={16} className="text-gray-400 mr-2" />
+                    <input 
+                      type="text" 
+                      placeholder="Check in → Check out" 
+                      className="w-full outline-none text-sm cursor-pointer"
+                      value={dateRange}
+                      onClick={() => {/* Would open date picker */}}
+                      readOnly
+                    />
+                  </div>
+                </div>
+                
+                {/* Guests */}
+                <div className="flex-1 border-b md:border-b-0 md:border-r border-gray-200 p-4">
+                  <div className="text-xs uppercase tracking-wider text-gray-500 mb-1 font-light">GUESTS</div>
+                  <div className="flex items-center">
+                    <Users size={16} className="text-gray-400 mr-2" />
+                    <input 
+                      type="text" 
+                      placeholder="2 adults, 0 children" 
+                      className="w-full outline-none text-sm cursor-pointer"
+                      value={guests}
+                      onClick={() => {/* Would open guests selector */}}
+                      readOnly
+                    />
+                  </div>
+                </div>
+                
+                {/* Search Button */}
+                <div className="p-2 md:p-3 flex items-center">
+                  <button className="bg-black text-white w-full md:w-auto px-6 py-3 flex items-center justify-center rounded-full hover:bg-gray-800 transition-colors">
+                    <span className="mr-2">Search</span>
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
+              </div>
+            </div>
+            
             <button className="bg-white text-black px-10 py-3 rounded-none hover:bg-gray-100 transition-colors duration-300 uppercase tracking-wide text-sm font-light">
               Explore Our Collection
             </button>
