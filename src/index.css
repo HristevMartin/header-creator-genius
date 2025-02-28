@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,28 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
 }

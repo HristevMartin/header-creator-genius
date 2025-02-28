@@ -1,12 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import Header from "@/components/Header";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="bg-white min-h-screen">
+      <Header />
+      <main className="pt-36 md:pt-40 px-4 md:px-6 container mx-auto">
+        <section className="flex flex-col items-center justify-center min-h-[60vh]">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 text-center mb-6">
+            Discover extraordinary hotels
+          </h2>
+          <p className="text-lg md:text-xl text-gray-700 max-w-2xl text-center mb-8">
+            Handpicked luxury and boutique hotels for the discerning traveler
+          </p>
+          <button className="bg-black text-white px-8 py-3 rounded-none hover:bg-gray-800 transition-colors duration-300">
+            Explore Our Collection
+          </button>
+        </section>
+      </main>
     </div>
   );
 };
