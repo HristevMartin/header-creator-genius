@@ -1,12 +1,13 @@
 
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { hotelData } from '../data/hotelRooms';
-import { ChevronLeft, Star, MapPin, Check, ChevronRight } from 'lucide-react';
+import { ChevronLeft, Star, MapPin, Check, ChevronRight, PhoneCall, Mail, Info } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
 
 const HotelDetail = () => {
   const { id } = useParams();
@@ -34,8 +35,10 @@ const HotelDetail = () => {
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Breadcrumbs */}
       <div className="flex items-center mb-8 text-sm">
-        <ChevronLeft className="h-4 w-4 mr-1" />
-        <a href="/hotels" className="text-gray-600 hover:underline">Back to hotels</a>
+        <Link to="/hotels" className="flex items-center text-gray-600 hover:underline">
+          <ChevronLeft className="h-4 w-4 mr-1" />
+          Back to hotels
+        </Link>
       </div>
       
       {/* Hotel Header */}
@@ -52,7 +55,11 @@ const HotelDetail = () => {
             </div>
           </div>
         </div>
-        <div className="mt-4 md:mt-0">
+        <div className="mt-4 md:mt-0 flex space-x-4">
+          <Button variant="outline" className="border-hotel-primary text-hotel-primary hover:bg-hotel-primary hover:text-white">
+            <PhoneCall className="mr-2 h-4 w-4" />
+            Call hotel
+          </Button>
           <Button className="bg-hotel-primary hover:bg-red-900 text-white">
             Book Now
           </Button>
@@ -93,6 +100,22 @@ const HotelDetail = () => {
             </div>
           </div>
           
+          {/* Thumbnail Gallery */}
+          <div className="grid grid-cols-5 gap-2 mb-8">
+            {hotel.images.slice(0, 5).map((image, index) => (
+              <button 
+                key={index}
+                onClick={() => setActiveImageIndex(index)}
+                className={cn(
+                  "h-20 rounded-md overflow-hidden border-2",
+                  activeImageIndex === index ? "border-hotel-primary" : "border-transparent"
+                )}
+              >
+                <img src={image} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
+          
           {/* Hotel Tabs Section */}
           <Tabs defaultValue="rooms" className="mb-8">
             <TabsList className="w-full border-b border-gray-200 mb-6 space-x-8">
@@ -125,6 +148,11 @@ const HotelDetail = () => {
                     <div className="md:col-span-1">
                       <div className="relative h-60 md:h-full">
                         <img src={room.images[0]} alt={room.name} className="w-full h-full object-cover" />
+                        <div className="absolute top-2 left-2">
+                          <Badge className="bg-white text-hotel-primary border-hotel-primary">
+                            Most Popular
+                          </Badge>
+                        </div>
                       </div>
                     </div>
                     
@@ -236,6 +264,24 @@ const HotelDetail = () => {
                         </li>
                       ))}
                     </ul>
+                    
+                    <div className="mt-6 pt-6 border-t border-gray-200">
+                      <h3 className="font-serif text-lg font-semibold mb-4">Need to know</h3>
+                      <ul className="space-y-3">
+                        <li className="flex items-start text-sm">
+                          <Info className="h-4 w-4 mr-2 mt-0.5 text-gray-500" />
+                          <span>Check-in: 3pm</span>
+                        </li>
+                        <li className="flex items-start text-sm">
+                          <Info className="h-4 w-4 mr-2 mt-0.5 text-gray-500" />
+                          <span>Check-out: 11am</span>
+                        </li>
+                        <li className="flex items-start text-sm">
+                          <Info className="h-4 w-4 mr-2 mt-0.5 text-gray-500" />
+                          <span>Pets welcome (on request)</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -247,6 +293,29 @@ const HotelDetail = () => {
                   <MapPin className="h-12 w-12 mx-auto mb-4 text-gray-400" />
                   <h3 className="font-serif text-xl mb-2">Map View</h3>
                   <p className="text-gray-600">{hotel.location}</p>
+                  <div className="mt-4">
+                    <Button variant="outline" className="bg-white">
+                      View on Google Maps
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8">
+                <h3 className="font-serif text-xl font-semibold mb-4">Getting there</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-medium mb-2">By car</h4>
+                    <p className="text-gray-600 mb-4">
+                      The hotel is 10 miles from central London. There's no parking at the hotel, but there are public car parks nearby.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-2">By train</h4>
+                    <p className="text-gray-600 mb-4">
+                      Richmond station is a 10-minute walk from the hotel, with connections to central London.
+                    </p>
+                  </div>
                 </div>
               </div>
             </TabsContent>
@@ -289,7 +358,7 @@ const HotelDetail = () => {
               </Button>
             </div>
             
-            <div className="bg-green-50 border border-hotel-green p-6 rounded-lg">
+            <div className="bg-green-50 border border-hotel-green p-6 rounded-lg mb-6">
               <h3 className="font-serif text-lg font-semibold mb-2 text-gray-800">Why book with us?</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
@@ -309,6 +378,20 @@ const HotelDetail = () => {
                   <span className="text-sm">No booking or cancellation fees</span>
                 </li>
               </ul>
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="font-serif text-lg font-semibold mb-4">Need help?</h3>
+              <div className="space-y-4">
+                <Button variant="outline" className="w-full flex items-center justify-center">
+                  <PhoneCall className="mr-2 h-4 w-4" />
+                  Call our travel experts
+                </Button>
+                <Button variant="outline" className="w-full flex items-center justify-center">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Email us
+                </Button>
+              </div>
             </div>
           </div>
         </div>

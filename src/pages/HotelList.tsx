@@ -1,4 +1,3 @@
-
 import { Heart, MapPin, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -164,9 +163,12 @@ const HotelCard = ({ hotel }: { hotel: typeof hotels[0] }) => {
               </div>
             )}
             
-            <button className="bg-hotel-green hover:bg-green-700 text-white font-medium px-10 py-4 w-full md:w-auto uppercase">
+            <Link 
+              to={`/hotels/${hotel.id}`} 
+              className="bg-hotel-green hover:bg-green-700 text-white font-medium px-10 py-4 w-full md:w-auto uppercase text-center"
+            >
               Select Room
-            </button>
+            </Link>
           </div>
         </div>
       </div>

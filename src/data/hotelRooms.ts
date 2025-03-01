@@ -14,6 +14,7 @@ export type Room = {
   amenities: string[];
   extras: string;
   cancellationPolicy: string;
+  isPopular?: boolean;
 };
 
 export type Hotel = {
@@ -34,16 +35,17 @@ export const hotelData: Hotel = {
   id: "bingham-riverhouse",
   name: "Bingham Riverhouse",
   location: "Richmond, London",
-  description: "A transformed Georgian townhouse on the banks of the River Thames, the Bingham Riverhouse is a peaceful retreat with a London postcode.",
+  description: "A transformed Georgian townhouse on the banks of the River Thames, the Bingham Riverhouse is a peaceful retreat with a London postcode. Each stylish room comes with views of either the river or the garden, alongside modern amenities and elegant furnishings. The riverside restaurant serves seasonal British cuisine from morning to night.",
   starRating: 4,
   images: [
     "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1470&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=1470&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1470&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=1470&auto=format&fit=crop"
+    "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=1470&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?q=80&w=1574&auto=format&fit=crop"
   ],
   features: ["Riverside location", "Boutique hotel", "Garden", "Restaurant", "Bar"],
-  smithExtra: "A signature welcome cocktail each",
+  smithExtra: "A signature welcome cocktail each and a 10% discount on food in the restaurant during your stay",
   facilities: [
     "15 rooms",
     "Restaurant",
@@ -52,13 +54,18 @@ export const hotelData: Hotel = {
     "Garden",
     "Concierge",
     "Parking nearby (£)",
-    "Pet-friendly"
+    "Pet-friendly",
+    "Room service",
+    "Air conditioning",
+    "Laundry service"
   ],
   highlights: [
     "Tranquil riverside location",
     "Award-winning restaurant",
     "Elegant, literary-inspired decor",
-    "Just 20 minutes from central London"
+    "Just 20 minutes from central London",
+    "Beautiful private garden",
+    "Personalized service"
   ],
   rooms: [
     {
@@ -86,7 +93,8 @@ export const hotelData: Hotel = {
         "Safe"
       ],
       extras: "Complimentary tea and coffee",
-      cancellationPolicy: "Free cancellation up to 14 days before arrival"
+      cancellationPolicy: "Free cancellation up to 14 days before arrival",
+      isPopular: false
     },
     {
       id: "river-room",
@@ -114,7 +122,8 @@ export const hotelData: Hotel = {
         "Nespresso machine"
       ],
       extras: "Complimentary bottle of wine on arrival",
-      cancellationPolicy: "Free cancellation up to 14 days before arrival"
+      cancellationPolicy: "Free cancellation up to 14 days before arrival",
+      isPopular: true
     },
     {
       id: "garden-suite",
@@ -143,7 +152,8 @@ export const hotelData: Hotel = {
         "Bluetooth speaker"
       ],
       extras: "Complimentary bottle of champagne and fruit platter on arrival",
-      cancellationPolicy: "Free cancellation up to 21 days before arrival"
+      cancellationPolicy: "Free cancellation up to 21 days before arrival",
+      isPopular: false
     }
   ]
 };
