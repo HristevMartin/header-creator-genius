@@ -62,6 +62,10 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				hotel: {
+					primary: '#8B0000',  // Dark red color for map buttons
+					green: '#1E8449'     // Green color for price guarantee
 				}
 			},
 			fontFamily: {
