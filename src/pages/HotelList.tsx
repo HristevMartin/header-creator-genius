@@ -89,55 +89,59 @@ const HotelCard = ({ hotel }: { hotel: typeof hotels[0] }) => {
   return (
     <div className="flex flex-col md:flex-row border-b border-gray-200 py-8 animate-fade-in">
       {/* Left side - Hotel image */}
-      <div className="relative md:w-1/2 lg:w-5/12 mb-4 md:mb-0 md:mr-6">
+      <div className="relative md:w-1/2 lg:w-6/12 mb-4 md:mb-0 md:mr-6">
         <img 
           src={hotel.image} 
           alt={hotel.name} 
-          className="w-full h-[300px] md:h-[250px] object-cover rounded-md"
+          className="w-full h-[300px] md:h-[250px] object-cover"
         />
         <button className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-colors">
-          <Heart className="w-5 h-5 text-gray-500" />
+          <Heart className="w-6 h-6 text-gray-500" />
         </button>
       </div>
       
       {/* Right side - Hotel details */}
-      <div className="md:w-1/2 lg:w-7/12 flex flex-col">
-        <div className="mb-auto">
-          <div className="text-sm text-gray-500 font-light tracking-wider mb-1">
-            {hotel.location}
+      <div className="md:w-1/2 lg:w-6/12 flex flex-col justify-between">
+        <div>
+          <div className="text-sm text-gray-500 tracking-wider mb-2 uppercase">
+            {hotel.location.replace(', UNITED KINGDOM', '')}
+            <span className="lowercase">, </span>
+            <span className="capitalize">united kingdom</span>
           </div>
-          <h2 className="text-2xl font-serif font-medium mb-2">{hotel.name}</h2>
+          <h2 className="text-3xl font-serif mb-4">{hotel.name}</h2>
           
-          <div className="grid grid-cols-2 gap-2 mb-4">
+          <div className="grid grid-cols-2 gap-x-12 gap-y-2 mb-6">
             <div>
-              <span className="text-gray-600 text-sm">Style</span>
+              <span className="text-gray-600 text-lg">Style</span>
               <p className="font-medium">{hotel.style}</p>
             </div>
             <div>
-              <span className="text-gray-600 text-sm">Setting</span>
+              <span className="text-gray-600 text-lg">Setting</span>
               <p className="font-medium">{hotel.setting}</p>
             </div>
           </div>
           
-          <button className="flex items-center text-white bg-[#8B0000] hover:bg-opacity-90 px-4 py-2 rounded mb-4">
-            <MapPin size={16} className="mr-2" />
-            <span className="text-sm font-medium">Map view</span>
+          <button className="flex items-center text-white bg-hotel-primary hover:bg-opacity-90 px-6 py-3 rounded mb-6">
+            <MapPin size={18} className="mr-2" />
+            <span className="font-medium">Map view</span>
           </button>
           
           {hotel.extras && (
-            <div className="bg-gray-100 p-4 rounded flex items-start mb-4">
-              <div className="mr-2 mt-1">
-                <div className="w-6 h-6 bg-[#8B0000] rounded-full flex items-center justify-center text-white text-xs font-bold">S</div>
+            <div className="bg-gray-100 p-5 rounded-md flex items-start mb-6">
+              <div className="mr-3 mt-1">
+                <div className="w-6 h-6 bg-hotel-primary rounded-full flex items-center justify-center text-white text-xs font-bold">S</div>
               </div>
               <div>
-                <span className="font-semibold">Smith Extra</span> {hotel.extras}
+                <span className="font-bold text-hotel-primary">Smith Extra</span>
+                <span className="ml-1">{hotel.extras}</span>
               </div>
             </div>
           )}
         </div>
         
-        <div className="mt-4 flex flex-col md:flex-row items-start md:items-center justify-between">
-          <div className="mb-3 md:mb-0">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between mt-4">
+          <div className="mb-4 md:mb-0">
+            <div className="text-sm text-gray-600 mb-1">Product Rating</div>
             <div className="flex items-center">
               <div className="mr-2">
                 <StarRating rating={hotel.rating} />
@@ -148,20 +152,20 @@ const HotelCard = ({ hotel }: { hotel: typeof hotels[0] }) => {
           
           <div className="flex flex-col items-end">
             <div className="text-right">
-              <span className="text-xl font-semibold">{hotel.price}</span>
+              <span className="text-3xl font-semibold">{hotel.price}</span>
               <div className="text-sm text-gray-600">{hotel.perNight}</div>
-              <div className="text-xs text-gray-500">includes taxes and fees</div>
+              <div className="text-sm text-gray-600">includes taxes and fees</div>
             </div>
             
             {hotel.hasGuarantee && (
-              <div className="flex items-center text-green-600 text-sm mt-1">
-                <Check size={16} className="mr-1" />
+              <div className="flex items-center text-hotel-green text-sm mt-2 mb-4">
+                <Check size={18} className="mr-1" />
                 <span>Best-price guarantee</span>
               </div>
             )}
             
-            <button className="bg-green-600 hover:bg-green-700 text-white font-medium px-6 py-3 rounded mt-3 transition-colors w-full md:w-auto text-center">
-              SELECT ROOM
+            <button className="bg-hotel-green hover:bg-green-700 text-white font-medium px-10 py-4 w-full md:w-auto uppercase">
+              Select Room
             </button>
           </div>
         </div>
