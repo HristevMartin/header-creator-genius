@@ -64,8 +64,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				hotel: {
-					primary: '#8B0000',  // Dark red color for map buttons
-					green: '#1E8449'     // Green color for price guarantee
+					primary: '#8B0000',  // Dark red color for buttons
+					green: '#1E8449',    // Green color for guarantee text and boxes
+					gray: '#F3F3F3',     // Light gray for backgrounds
+					text: '#403E43'      // Dark gray for text
 				}
 			},
 			fontFamily: {
