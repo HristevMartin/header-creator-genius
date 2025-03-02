@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import HotelList from "./pages/HotelList";
 import HotelDetail from "./pages/HotelDetail";
+import BookingStep2 from "./pages/BookingStep2";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/hotels" element={<HotelList />} />
           <Route path="/hotels/:id" element={<HotelDetail />} />
+          <Route path="/booking/step-two" element={<BookingStep2 />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

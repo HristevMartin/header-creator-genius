@@ -64,9 +64,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				hotel: {
-					primary: '#8B0000',  // Dark red color for buttons
+					primary: '#8B0000',  // Dark red color for buttons and links
 					green: '#1E8449',    // Green color for guarantee text and boxes
-					gray: '#F3F3F3',     // Light gray for backgrounds
+					gray: '#F8F8F5',     // Light gray for backgrounds
 					text: '#403E43'      // Dark gray for text
 				}
 			},
