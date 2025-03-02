@@ -19,8 +19,8 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hotel: "bg-hotel-primary text-white hover:bg-hotel-primary/90",
-        hotelGreen: "bg-hotel-green text-white hover:bg-hotel-green/90",
+        hotel: "bg-hotel-primary text-white hover:bg-hotel-primary/90 rounded-sm",
+        hotelGreen: "bg-hotel-green text-white hover:bg-hotel-green/90 rounded-sm",
       },
       size: {
         default: "h-10 px-4 py-2",

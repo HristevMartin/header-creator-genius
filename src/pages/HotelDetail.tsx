@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import { hotelData } from '../data/hotelRooms';
 import { ChevronLeft, Heart, Calendar, Check, ChevronDown } from 'lucide-react';
@@ -10,6 +10,7 @@ import { Separator } from "@/components/ui/separator";
 
 const HotelDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [activeRoom, setActiveRoom] = useState(hotelData.rooms[0]);
   const [selectedDates] = useState({
     from: new Date(2025, 2, 11), // March 11, 2025
@@ -21,6 +22,11 @@ const HotelDetail = () => {
   
   // Calculate available rooms randomly between 1-5
   const availableRooms = Math.floor(Math.random() * 5) + 1;
+
+  const handleBookNow = (roomId: string) => {
+    // Navigate to the booking page with room ID and dates as query parameters
+    navigate(`/booking/step-two?roomId=${roomId}&hotelId=${hotel.id}&checkIn=${format(selectedDates.from, 'yyyy-MM-dd')}&checkOut=${format(selectedDates.to, 'yyyy-MM-dd')}`);
+  };
   
   return (
     <div className="w-full mx-auto bg-[#f8f8f5]">
@@ -99,7 +105,7 @@ const HotelDetail = () => {
       {/* Back to Search */}
       <div className="bg-white py-4">
         <div className="max-w-7xl mx-auto px-4">
-          <Link to="/hotels" className="inline-flex items-center bg-[#8B0000] text-white px-4 py-2 rounded-sm hover:bg-[#700000] transition-colors text-sm">
+          <Link to="/hotels" className="inline-flex items-center bg-hotel-primary text-white px-4 py-2 rounded-sm hover:bg-hotel-primary/90 transition-colors text-sm">
             <ChevronLeft className="h-4 w-4 mr-1" />
             BACK TO SEARCH RESULTS
           </Link>
@@ -135,7 +141,7 @@ const HotelDetail = () => {
                     {room.description}
                   </p>
                   
-                  <button className="text-[#8B0000] flex items-center hover:underline mb-3">
+                  <button className="text-hotel-primary flex items-center hover:underline mb-3">
                     Read more <ChevronDown className="h-4 w-4 ml-1" />
                   </button>
                   
@@ -159,7 +165,7 @@ const HotelDetail = () => {
                       </div>
                     </div>
                     
-                    <div className="text-center text-[#8B0000] font-medium">
+                    <div className="text-center text-hotel-primary font-medium">
                       {availableRooms} rooms left
                     </div>
                   </div>
@@ -170,7 +176,7 @@ const HotelDetail = () => {
                   <h3 className="text-xl font-serif mb-2">Best Available Rate</h3>
                   <p className="text-gray-600 text-sm mb-4">This is a room only rate</p>
                   
-                  <div className="flex items-center gap-2 text-[#8B0000] text-sm mb-6">
+                  <div className="flex items-center gap-2 text-hotel-primary text-sm mb-6">
                     <span className="text-xl">✿</span>
                     <span>Smith Extra: One Aperol cocktail each in the Bingham Bar</span>
                   </div>
@@ -188,15 +194,19 @@ const HotelDetail = () => {
                     
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600">Deposit to pay us now</span>
-                      <span className="text-[#1E8449] font-bold text-lg">£0.00</span>
+                      <span className="text-hotel-green font-bold text-lg">£0.00</span>
                     </div>
                   </div>
                   
-                  <div className="text-[#1E8449] text-sm mb-4">
+                  <div className="text-hotel-green text-sm mb-4">
                     Free cancellation before 09 of March 2025
                   </div>
                   
-                  <Button className="w-full bg-[#1E8449] hover:bg-[#186a3b] text-white px-4 py-6 h-auto text-base uppercase">
+                  <Button 
+                    onClick={() => handleBookNow(room.id)} 
+                    variant="hotelGreen" 
+                    className="w-full px-4 py-6 h-auto text-base uppercase"
+                  >
                     BOOK NOW
                   </Button>
                   
