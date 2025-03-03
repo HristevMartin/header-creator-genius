@@ -26,12 +26,12 @@ const DateSelector: React.FC<DateSelectorProps> = ({
   return (
     <div className="relative">
       <div className="absolute inset-y-0 left-2 flex items-center pointer-events-none">
-        <Calendar className="h-4 w-4 text-gray-500" />
+        <Calendar className="h-4 w-4 text-hotel-primary" />
       </div>
       <select 
         value={selectedDate || ''} 
         onChange={onDateSelect}
-        className="block w-full pl-8 pr-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-hotel-primary focus:border-hotel-primary"
+        className="block w-full pl-8 pr-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-hotel-primary focus:border-hotel-primary bg-white"
         required
       >
         <option value="" disabled>Select date</option>

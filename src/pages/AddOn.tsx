@@ -8,8 +8,9 @@ import { useUserDeviceType } from '~/services/defineCustomer';
 import DateSelector from './_components/dateSelector';
 import { useCustomLocale } from '~/context/LocaleProvider';
 import { AddToCart } from '../../Hotels/hoteldetail/_components/AddToCart';
-import { Calendar, Clock, MapPin, CheckCircle, Shield, Tag, AlertTriangle } from 'lucide-react';
+import { Calendar, Clock, MapPin, CheckCircle, Shield, Tag, CalendarDays } from 'lucide-react';
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 
 const AddOn = () => {
   const [addOnProducts, setAddOnProducts] = useState([]);
@@ -49,7 +50,6 @@ const AddOn = () => {
       setDateOptions(dates);
     }
   }, []);
-
 
   useEffect(() => {
     setLoading(true);
@@ -120,15 +120,12 @@ const AddOn = () => {
     console.log(`Selected date for product ${productId}: ${newDate}`);
   };
 
-  console.log('selectedDatesMMM', selectedDates);
-
   const groupedProducts = addonTypes.map((type) => ({
       type,
       products: addOnProducts.filter((product) => product.addOnType === type),
   }));
 
   console.log('show me the grouped products', groupedProducts);
-
 
   return (
     <div className="bg-[#f8f8f5] min-h-screen">
@@ -192,7 +189,7 @@ const AddOn = () => {
                             </div>
                           </div>
                           <div className="flex items-start">
-                            <AlertTriangle className="w-4 h-4 text-hotel-primary mt-1 flex-shrink-0" />
+                            <Tag className="w-4 h-4 text-hotel-primary mt-1 flex-shrink-0" />
                             <div className="ml-2">
                               <span className="text-sm font-medium">Exclusions:</span>
                               <p className="text-xs text-gray-600 line-clamp-2">{product.custom_fields.exclusions}</p>
@@ -252,9 +249,9 @@ const AddOn = () => {
 
           <div className="flex justify-center mt-10 mb-8">
             <Link href={`/${lang}/login?service=${service}`}>
-              <button className="bg-hotel-primary hover:bg-hotel-primary/90 text-white px-8 py-3 rounded-sm font-medium transition-colors">
+              <Button variant="hotel" size="lg" className="px-8 py-6 font-medium">
                 Continue to Checkout
-              </button>
+              </Button>
             </Link>
           </div>
         </div>
