@@ -1,0 +1,152 @@
+
+/* General Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Line Clamp Utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Loading Spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(139, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #8B0000;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Date Selector */
+@media (max-width: 768px) {
+  .date-selector-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .date-selector {
+    width: 100%;
+  }
+}
+
+/* Custom Button Styles */
+.custom-button {
+  background-color: #8B0000;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+.custom-button:hover {
+  background-color: #700000;
+}
+
+.custom-button.full-width {
+  width: 100%;
+}
+
+/* Card Price Tag */
+.price-tag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #8B0000;
+  color: white;
+  padding: 4px 12px;
+  font-weight: bold;
+}
+
+/* Section Headings */
+.section-heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-heading-icon {
+  margin-right: 0.5rem;
+  color: #8B0000;
+}
+
+.section-heading-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 640px) {
+  .section-heading-text {
+    font-size: 1.25rem;
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
