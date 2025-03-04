@@ -1,0 +1,215 @@
+
+.confirmation-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.confirmation-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.confirmation-title {
+  font-family: 'Playfair Display', serif;
+  color: #403E43;
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.confirmation-subtitle {
+  color: #6b7280;
+  font-size: 1.125rem;
+  max-width: 720px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+.confirmation-reference {
+  background-color: #f8f8f5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 1.125rem;
+}
+
+.reference-id {
+  color: #8B0000;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.confirmation-items {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.item-container {
+  display: flex;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.item-image-container {
+  width: 250px;
+  height: 160px;
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-name {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #403E43;
+}
+
+.item-hotel {
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.item-price {
+  font-weight: 600;
+  color: #8B0000;
+  font-size: 1.125rem;
+}
+
+.confirmation-footer {
+  padding: 1.5rem;
+  border-top: 2px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #403E43;
+}
+
+.manage-booking-btn {
+  background-color: #8B0000;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+}
+
+.manage-booking-btn:hover {
+  background-color: #700000;
+}
+
+.support-section {
+  background-color: #f8f8f5;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.success-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  color: #1E8449;
+}
+
+.confirmation-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.confirmation-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmation-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .confirmation-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .confirmation-image-container {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .confirmation-container {
+    padding: 1rem;
+  }
+  
+  .confirmation-title {
+    font-size: 2rem;
+  }
+  
+  .item-container {
+    flex-direction: column;
+  }
+  
+  .item-image-container {
+    width: 100%;
+    height: 200px;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .confirmation-footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .confirmation-title {
+    font-size: 1.75rem;
+  }
+  
+  .confirmation-subtitle {
+    font-size: 1rem;
+  }
+  
+  .item-image-container {
+    height: 150px;
+  }
+}
