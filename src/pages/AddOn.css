@@ -140,6 +140,44 @@
   color: #333;
 }
 
+/* Footer Styling */
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+
+.footer-newsletter {
+  background-color: #F8F8F5;
+}
+
+.footer-social-icon {
+  transition: all 0.3s ease;
+}
+
+.footer-social-icon:hover {
+  transform: translateY(-2px);
+}
+
+.footer-nav-link {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.footer-nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.footer-nav-link:hover:after {
+  width: 100%;
+}
+
 /* Additional responsive adjustments */
 @media (max-width: 640px) {
   .section-heading-text {
@@ -148,5 +186,14 @@
   
   .card-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
   }
 }
