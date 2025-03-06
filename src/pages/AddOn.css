@@ -178,7 +178,71 @@
   width: 100%;
 }
 
-/* Additional responsive adjustments */
+/* Order Summary Responsive Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.subtitle {
+  font-family: 'sans-serif';
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.item-quantity {
+  margin-bottom: 8px;
+}
+
+.total-box {
+  background-color: #f8f8f5;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+/* Responsive styles for OrderSummary */
+@media (max-width: 960px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .image {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 640px) {
   .section-heading-text {
     font-size: 1.25rem;
@@ -195,5 +259,31 @@
   .footer-bottom {
     flex-direction: column;
     gap: 1rem;
+  }
+  
+  .title {
+    font-size: 1.3rem;
+  }
+  
+  .image {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .image {
+    max-width: 100px;
   }
 }
