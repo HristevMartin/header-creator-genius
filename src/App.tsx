@@ -9,6 +9,7 @@ import NotFound from "./pages/NotFound";
 import HotelList from "./pages/HotelList";
 import HotelDetail from "./pages/HotelDetail";
 import BookingStep2 from "./pages/BookingStep2";
+import Dashboard from "./pages/Dashboard";
 import Footer from "./components/Footer";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
               <Route path="/hotels" element={<HotelList />} />
               <Route path="/hotels/:id" element={<HotelDetail />} />
               <Route path="/booking/step-two" element={<BookingStep2 />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
